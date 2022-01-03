@@ -13,20 +13,24 @@ export default function Album() {
   const [sliderOn, setSliderOn] = useState(false);  
 
   const id = location.pathname.replace(/(?:\/+(\?))/, '$1').replace(/\/+$/, '').split('/')
+ 
 
   const handleClick = (e) => {
     if(e.key && e.key !== 'Enter')
       return
     e.preventDefault()
-     let index = e.target.getAttribute('data-tag');
      
+      e.currentTarget.classList.add('imgclick')
+     let index = e.target.getAttribute('data-tag');
+
      //Set index to tell slider which image is the current one
      setCurrent(index)
        
     //Display slider 
      setSliderOn(true);
+    
   }
-  
+
   const handleCloseSlider = (e) =>{
     if(e.key && e.key !== 'Enter')
       return
@@ -40,8 +44,10 @@ export default function Album() {
     if(e.currentTarget != e.target ) return;
     setSliderOn(false);  
     
-    
   }
+
+
+
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/albums/${id[4]}/photos`)
       .then(response => response.json())
@@ -54,9 +60,15 @@ export default function Album() {
     <div className="wraper">
     { !sliderOn && <Breadcrumb /> }
       <div className="album">
-            { !sliderOn && album.map( (image, index) => 
+            {  album.map( (image, index) => 
                   <div key={image.id} className="album__wrap">
-                    <img className="album__wrap_img" src={image.url} tabIndex="0" data-tag={index} onKeyDown={handleClick} onClick={handleClick} title={ image.title }/> 
+                    <img className="album__wrap_img" 
+                          src={image.url} tabIndex="0" 
+                          data-tag={index} 
+                          onKeyDown={handleClick} 
+                          onClick={handleClick} 
+                          title={ image.title } 
+                    /> 
                   </div>
             )}  
             {sliderOn && (
