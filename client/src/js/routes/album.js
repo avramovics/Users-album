@@ -20,7 +20,6 @@ export default function Album() {
       return
     e.preventDefault()
      
-      e.currentTarget.classList.add('imgclick')
      let index = e.target.getAttribute('data-tag');
 
      //Set index to tell slider which image is the current one
@@ -60,7 +59,7 @@ export default function Album() {
     <div className="wraper">
     { !sliderOn && <Breadcrumb /> }
       <div className="album">
-            {  album.map( (image, index) => 
+            { !sliderOn && album.map( (image, index) => 
                   <div key={image.id} className="album__wrap">
                     <img className="album__wrap_img" 
                           src={image.url} tabIndex="0" 
