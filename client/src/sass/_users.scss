@@ -1,0 +1,65 @@
+
+.users{
+    button{
+        background-color: transparent;
+        border: 0px;
+    }
+   
+
+
+    .icon-star-border{
+      
+        position:absolute;
+        top: 8px;
+        right: 10px;
+    }
+    .icon-star{
+        font-size: 1.5em;
+        z-index:1;
+        position:absolute;
+        top: 12px;
+        right: 14px;
+       color:var(--card-bg);
+    }
+    &__category_cards{
+
+    justify-content: center;
+    display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    
+    .users__card {
+        position:relative;
+        border-radius:4px;
+        p{
+            margin-bottom: 4px; 
+        }
+        .users__top {
+            margin-bottom: 4px;
+            display: grid;
+            grid-template-columns:  90% 10%;
+            grid-template-rows: auto;
+           
+        } 
+
+        background-color:var(--card-bg);
+        margin-bottom:25px;
+        float: none;
+        width: 340px;
+        margin: 15px 15px;
+        padding:10px;
+        text-decoration: none;
+        color: var(--text-dark);
+
+        @media only screen and (max-width: 400px) {
+            margin: 15px 0px;
+        }
+        overflow: hidden;
+    
+     
+    }
+}
+    
+}
+
+
