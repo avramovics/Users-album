@@ -24,12 +24,13 @@ export default function Album() {
      
      let index = e.target.getAttribute('data-tag');
 
-     //Set index to tell slider which image is the current one
+    {/* Set index to tell slider which image is the current one */}  
      setCurrent(index)
     
+    {/* Setting state of BoundingClientRect so we can extract top, left position and width / height of the element */}  
      setCurrentTarget(e.currentTarget.getBoundingClientRect())
 
-    //Display slider 
+    {/* Display slider */} 
      setSliderOn(true);
     
   }
@@ -39,7 +40,7 @@ export default function Album() {
       return
     e.preventDefault()
 
-    //Make exception for close-icon class element
+    {/* Make exception for close-icon class element */} 
     if(e.currentTarget.classList.contains('close-icon')){
       setSliderOn(false);
     }
@@ -54,7 +55,6 @@ export default function Album() {
       .then(response => response.json())
       .then(json =>  setAlbum(json) )
 
-      //Remove trailing slash from the url
     }, [location]);
     
   return (
