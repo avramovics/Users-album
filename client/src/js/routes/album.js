@@ -10,6 +10,8 @@ export default function Album() {
 
   const [current, setCurrent] = useState([]);  
 
+  const [currentTarget, setCurrentTarget] = useState([]);  
+
   const [sliderOn, setSliderOn] = useState(false);  
 
   const id = location.pathname.replace(/(?:\/+(\?))/, '$1').replace(/\/+$/, '').split('/')
@@ -24,7 +26,9 @@ export default function Album() {
 
      //Set index to tell slider which image is the current one
      setCurrent(index)
-       
+    
+     setCurrentTarget(e.currentTarget.getBoundingClientRect())
+
     //Display slider 
      setSliderOn(true);
     
@@ -44,8 +48,6 @@ export default function Album() {
     setSliderOn(false);  
     
   }
-
-
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/albums/${id[4]}/photos`)
@@ -71,7 +73,7 @@ export default function Album() {
                   </div>
             )}  
             {sliderOn && (
-                    <ImageSlider slides={ album } close={handleCloseSlider} current={current} />
+                    <ImageSlider slides={ album } target={currentTarget} close={handleCloseSlider} current={current} />
                 )}
       </div>
   </div>

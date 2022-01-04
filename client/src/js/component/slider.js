@@ -41,9 +41,9 @@ export const ImageSlider = (props)=>{
             <button className="icon right-arrow btn" onKeyDown={nextSlide} onClick={nextSlide} tabIndex="0" aria-label="Next slide">
               < FontAwesomeIcon  icon={ faArrowAltCircleRight }  size="2x" /> 
             </button>
-            <div className="slider_item">
+            <div className="slider_item" style={{ position:"absolute", top: props.target.top + "px", left: props.target.left + "px", maxWidth: "250px"}}>
             {props.slides.map((slide ,index)=>{
-                return (<div key={index} className={index === current ? 'active' : 'slide'} >
+                return index === current && (<div key={index} className={index === current ? 'active' : 'slide'} >
                         {index === current && (
                             <div className="image-slider__wrap">
                             <img tabIndex="0" src={slide.url} alt={slide.title} />
