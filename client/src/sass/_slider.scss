@@ -38,13 +38,8 @@
     }
 
     .slider_item {
-        
         animation: slide 1s forwards;
         aspect-ratio: 1 / 1;
-       
-       
-  
-
         @media only screen and (max-width: 600px) {
             width: 100%;
             padding: 20px;
@@ -77,7 +72,12 @@
           }
     }
     @keyframes slide {
-
+        0%{
+            max-width: 250px;
+        }
+        50%{
+            max-width: 400px;
+        }
         100%  {
         max-width: 800px;
         position:absolute;
