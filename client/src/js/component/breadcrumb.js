@@ -25,7 +25,7 @@ function Breadcrumb(){
          .then(response => response.json())
          .then(json => setAlbum(json) )
         }
-        //Remove trailing slash from the url
+        {/* Remove trailing slash from the url */} 
         setCrumbs(location.pathname.replace(/(?:\/+(\?))/, '$1').replace(/\/+$/, '').split('/'))
       }, [location]);
   

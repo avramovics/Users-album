@@ -1,5 +1,5 @@
 
-//Finde favorit users
+{/* Finde favorit users */}
 export default (a, fun) => {
     let ret = { favorit: [], regular: [] };
       for (let i = 0; i < a.length; i++){

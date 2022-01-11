@@ -12,7 +12,6 @@ export const ImageSlider = (props)=>{
       if(e.key && e.key !== 'Enter')
       return
         setCurrent(current === length - 1 ? 0 : current + 1)
-
     }
 
     const prevSlide= (e) => {
@@ -24,7 +23,7 @@ export const ImageSlider = (props)=>{
     useEffect(() => {
      setCurrent(Number(props.current) ? Number(props.current) : 0)
       }, [props.current]);
-      
+
       {/* Just a check to see if slides contains data */}
       if(!Array.isArray(props.slides) || props.slides.length <= 0){
         return null
@@ -53,19 +52,17 @@ export const ImageSlider = (props)=>{
             <div className="slider_item" style={{ position:"absolute", top: props.target.top + "px", left: props.target.left + "px"}}>
 
             {props.slides.map((slide ,index)=>{
-                return index === current && (<div key={index} className={index === current ? 'active' : 'slide'} >
-                        {index === current && (
+                return index === current && (
+                      <div key={index} className={index === current ? 'active' : 'slide'} >
                             <div className="image-slider__wrap">
                             <img tabIndex="0" src={slide.url} alt={slide.title} />
                             <p> {slide.title} </p>
                             </div>
-                        )}</div>)
+                        </div>
+                        )
                     })
                 }
-
-
             </div>
-            
           </div>
         </section>
         )

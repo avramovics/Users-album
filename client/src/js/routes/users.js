@@ -6,7 +6,7 @@ import { getUsers, updateUsersStatus } from '../actions/usersDispatch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-//Finde favorites
+{/* Finde favorites */}
 import filter from '../helper/favorites'
 
 function Users() {
@@ -33,7 +33,7 @@ function Users() {
 
     let { favorit, regular } = filter(users, (a) => a.favorit );
 
-    let display= [];
+    let display = [];
 
     display.push([favorit, regular].map((group, i) =>{ 
         return( group.map(user=>{
@@ -52,7 +52,7 @@ function Users() {
           })
         )
       }))
-        
+
     return (
         <div className="wraper">
            { <Breadcrumb /> } 
